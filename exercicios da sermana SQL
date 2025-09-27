@@ -1,0 +1,70 @@
+---criação tabela favoritos---
+CREATE TABLE IF NOT EXISTS favoritos(
+id integer primary key,
+email varchar(50) unique,
+valor decimal(4,2) check (valor > 0),
+status char  default 'p',
+fk_vendas integer,
+foreign key (fk_vendas) references vendas (venda_id)
+);
+
+
+===============================================
+---criação tabela notas fiscais---
+CREATE TABLE IF NOT EXISTS itens_notas_fiscais(
+numero integer,
+id_item integer,
+data_emissao Date,
+produto_codigo varchar (20),
+produto_descriacao varchar(200),
+quantidade decimal (10,3),
+valor_total  decimal(10,2),
+valor_unitario decimal(10,2)
+
+
+);
+==============================================
+---criação tabela produtos---
+CREATE TABLE IF NOT EXISTS produtos(
+produto_id SERIAL,
+codigo varchar (20),
+descricao varchar(200),
+preco decimal(10,2),
+estoque integer
+
+
+);
+
+==============================================
+---alterações---
+CREATE TABLE IF NOT EXISTS notas_fiscais(
+numero primary key,
+data_emissao Date,
+valor_total  decimal(10,2),
+valor_unitario decimal(10,2),
+cliente_id integer,
+foreign key (cliente_id) references cliente (cliente_id)
+);
+==================================================
+---criação tabela clientes---
+CREATE TABLE clientes (
+    cliente_id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    cpf VARCHAR(14) unique,
+    email VARCHAR(100),
+    telefone VARCHAR(15)
+);
+
+===================================================
+---alterações---
+CREATE TABLE clientes (
+    cliente_id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    cpf VARCHAR(14) unique,
+    email VARCHAR(100),
+    telefone VARCHAR(15)
+);
+insert into clientes(nome,email,telefone,cpf)--inserido na minha Tabela--
+VALUES	
+('ana','analuisa2525@gmail.com','31997702277','14563018963');
+select * from clientes;
