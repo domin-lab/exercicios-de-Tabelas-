@@ -1,4 +1,6 @@
+=================================
 ---criação tabela favoritos---
+================================
 CREATE TABLE IF NOT EXISTS favoritos(
 id integer primary key,
 email varchar(50) unique,
@@ -11,6 +13,7 @@ foreign key (fk_vendas) references vendas (venda_id)
 
 ===============================================
 ---criação tabela notas fiscais---
+==============================================
 CREATE TABLE IF NOT EXISTS itens_notas_fiscais(
 numero integer,
 id_item integer,
@@ -25,6 +28,7 @@ valor_unitario decimal(10,2)
 );
 ==============================================
 ---criação tabela produtos---
+=============================================
 CREATE TABLE IF NOT EXISTS produtos(
 produto_id SERIAL,
 codigo varchar (20),
@@ -37,6 +41,7 @@ estoque integer
 
 ==============================================
 ---alterações---
+============================================
 CREATE TABLE IF NOT EXISTS notas_fiscais(
 numero primary key,
 data_emissao Date,
@@ -47,6 +52,7 @@ foreign key (cliente_id) references cliente (cliente_id)
 );
 ==================================================
 ---criação tabela clientes---
+================================================
 CREATE TABLE clientes (
     cliente_id SERIAL PRIMARY KEY,
     nome VARCHAR(100) not null,
@@ -57,6 +63,7 @@ CREATE TABLE clientes (
 
 ===================================================
 ---alterações---
+=================================================
 CREATE TABLE clientes (
     cliente_id SERIAL PRIMARY KEY,
     nome VARCHAR(100) not null,
@@ -64,7 +71,7 @@ CREATE TABLE clientes (
     email VARCHAR(100),
     telefone VARCHAR(15)
 );
-insert into clientes(nome,email,telefone,cpf)--inserido na minha Tabela--
+insert into clientes(nome,email,telefone,cpf)=========--inserido na minha Tabela--==========
 VALUES	
 ('ana','analuisa2525@gmail.com','31997702277','14563018963');
 select * from clientes;
